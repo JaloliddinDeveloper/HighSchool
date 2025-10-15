@@ -1,3 +1,9 @@
+using HighSchool.Brokers.Storages;
+using HighSchool.Services.Foundations;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
 public class Program
 {
     private static void Main(string[] args)
@@ -5,6 +11,10 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddControllers();
+
+        builder.Services.AddTransient<IStorageBroker, StorageBroker>();
+
+        builder.Services.AddTransient<IStudentService, StudentService>();
 
         builder.Services.AddEndpointsApiExplorer();
 
