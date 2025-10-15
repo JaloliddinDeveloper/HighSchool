@@ -6,6 +6,7 @@ namespace HighSchool.Controllers
     [Route("[controller]")]
     public class HomeController : Controller
     {
+        [HttpGet]
         public ActionResult<string> Get() =>
             "Hello HighSchool";
     }
